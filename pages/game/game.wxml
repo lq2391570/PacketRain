@@ -1,0 +1,46 @@
+<!--pages/game/game.wxml-->
+<!-- <text>pages/game/game.wxml</text> -->
+<!--pages/redBacketRain/redBacketRain.wxml-->
+<!-- <text>pages/redBacketRain/redBacketRain.wxml</text> -->
+<view class='bgView' hidden='{{isGameOver}}'>
+  <cax id="myCanvas" class="caxClass" style="background-image: url(http://videoss.cdn.bcebos.com/redBacketBG.png)">
+    <text>分数:{{score}}</text>
+    <text class='continuationClass'>连击次数:{{numOfContinuation}}</text>
+    <text class='scoreChangeClass {{changeScore < 0 ? "scoreChangeClass2_color":""}}' animation="{{animationData}}">{{changeScore>0 ? "+":""}}{{changeScore}}</text>
+    <view class='countDownView' style='background-image: url(http://videoss.cdn.bcebos.com/countdown.png)'>
+      <text>倒计时</text>
+      <text>{{numOfTime}}</text>
+      <text>s</text>
+    </view>
+    <view class='lifeView'>
+      <text>生命值</text>
+      <image src="{{lifeImageArray[numOfLife]}}"></image>
+    </view>
+  </cax>
+</view>
+
+<view class='bgView' hidden='{{!isGameOver}}'>
+  <view class='caxClass' style="background-image: url(http://videoss.cdn.bcebos.com/redBacketBG.png)">
+    <text>分数:{{score}}</text>
+    <!-- <text class='scoreChangeClass {{changeScore < 0 ? "scoreChangeClass2_color":""}}' animation="{{animationData}}">{{changeScore>0 ? "+":""}}{{changeScore}}</text> -->
+    <view class='countDownView' style='background-image: url(http://videoss.cdn.bcebos.com/countdown.png)'>
+      <text>倒计时</text>
+      <text>{{numOfTime}}</text>
+      <text>s</text>
+    </view>
+    <view class='lifeView'>
+      <text>生命值</text>
+      <image src="{{lifeImageArray[numOfLife]}}"></image>
+    </view>
+  </view>
+
+  <view class='shadeView' style='background-image: url(http://videoss.cdn.bcebos.com/shade.png)'>
+    <view class='shadeView_scoreView' style='background-image: url(http://videoss.cdn.bcebos.com/scoreBj.png)'>
+      <text>{{score}}</text>
+      <text>分</text>
+    </view>
+    <view class='shadeView_gameOverBtn' bindtap='gameOverBtnClick'>
+      <image src='http://videoss.cdn.bcebos.com/endBtn.png'></image>
+    </view>
+  </view>
+</view>
