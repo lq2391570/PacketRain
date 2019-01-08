@@ -72,17 +72,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.updateScore()
+    
   },
   //开启一个倒计时关闭游戏
   stopGame(bgStage) {
     var that = this
     this.data.interval5 = setInterval(function () {
       var nowTime = that.data.numOfTime - 1
-      //5s上传一次分数
-      if (nowTime % 5 == 0) {
-        that.updateScore()
-      }
+      
       //20S增加一次速度
       if (nowTime % 20 == 0) {
         that.speedChange(bgStage)
@@ -93,7 +90,7 @@ Page({
     }, 1000)
     setTimeout(function () {
       that.gameOver(bgStage)
-      that.updateScore()
+      
     }, 1000 * that.data.numOfTime)
   },
   //关闭游戏（gameover）
